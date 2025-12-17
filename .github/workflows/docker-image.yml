@@ -29,4 +29,6 @@ jobs:
         run: |
           kubectl apply -f kubernetes/deployment.yml
           kubectl apply -f kubernetes/service.yml
+          kubectl rollout status deployment/flask-deployment --timeout=160s
+          sleep 10
           minikube service flask-service
